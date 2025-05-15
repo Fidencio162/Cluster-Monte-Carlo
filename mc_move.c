@@ -1,4 +1,5 @@
 //This subroutine displaces the system to a new configuration
+// Here we used the Cluster methods
 void mcmove(double x[], double y[], double z[], double diam[], double zz[], double *ener, int *nattemp, int *nacc, double del, double boxl) {
     *nattemp = *nattemp + 1;
     int no = (int)(ranf(&iseed) * np); // select random particle
