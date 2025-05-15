@@ -1,3 +1,21 @@
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+typedef struct {
+    double x, y, z;
+} Vector3D;
+
+Vector3D random_unit_vector(int *iseed) {
+    double theta = 2.0 * M_PI * ranf(iseed);
+    double phi = acos(2.0 * ranf(iseed) - 1.0);
+    Vector3D v;
+    v.x = sin(phi) * cos(theta);
+    v.y = sin(phi) * sin(theta);
+    v.z = cos(phi);
+    return v;
+}
+
 //This subroutine displaces the system to a new configuration
 // Here we used the Cluster methods
 void mcmove(double x[], double y[], double z[], double diam[], double zz[], double *ener, int *nattemp, int *nacc, double del, double boxl) {
