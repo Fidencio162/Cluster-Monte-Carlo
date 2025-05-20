@@ -21,6 +21,11 @@ Vector3D random_unit_vector(int *iseed) {
 void mcmove(double x[], double y[], double z[], double diam[], double zz[], double *ener, int *nattemp, int *nacc, double del, double boxl) {
     *nattemp = *nattemp + 1;
     int no = (int)(ranf(&iseed) * np); // select random particle
+    
+    x[no] -= boxl * round(x[no] / boxl);
+    y[no] -= boxl * round(y[no] / boxl);
+    z[no] -= boxl * round(z[no] / boxl);
+
 
     double xo = x[no];
     double yo = y[no];
@@ -50,6 +55,12 @@ void mcmove(double x[], double y[], double z[], double diam[], double zz[], doub
     double dx_old = x[nj] - xo;
     double dy_old = y[nj] - yo;
     double dz_old = z[nj] - zo;
+    
+    // Aplicar imagen mínima
+    dx_old -= boxl * round(dx_old / boxl);
+    dy_old -= boxl * round(dy_old / boxl);
+    dz_old -= boxl * round(dz_old / boxl);
+
     double r12_old = sqrt(dx_old*dx_old + dy_old*dy_old + dz_old*dz_old);
 
     // Compute old energy only for moved particle
