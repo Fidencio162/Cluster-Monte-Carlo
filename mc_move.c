@@ -111,3 +111,5 @@ void mcmove(double x[], double y[], double z[], double diam[], double zz[], doub
         z[nj] = zj_old;
     }
 }
+
+// If you find any errors, please let me know by email.
