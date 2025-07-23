@@ -6,7 +6,7 @@ typedef struct {
     double x, y, z;
 } Vector3D;
 
-Vector3D random_unit_vector(int *iseed) {
+Vector3D random_unit_vector(long *iseed) {
     double theta = 2.0 * M_PI * ranf(iseed);
     double phi = acos(2.0 * ranf(iseed) - 1.0);
     Vector3D v;
